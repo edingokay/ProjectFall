@@ -11,5 +11,12 @@ The project template  for the BIM207 course - Fall 2024
 * For a certain user input(s) the function/method **infiniteLoop** enters an infinite loop.
 * This is an intentional bug, do not fix it.
 * Instead, write a *failing* junit test case to demonstrate the bug.
-* 
-## Part-I
+
+## Part-II
+
+* Please implement an increment-by-one method that increments the frequency of a                                                                                                                                                                         given key by one in a count/frequency map.
+* There's often a case when we can declare a generic method using [either wildcards or type parameters](https://www.baeldung.com/java-generics-type-parameter-vs-wildcard).
+* Implement the generic method in both possible two ways (i.e. using wildcards `<?>` and type parameters `<E>`).
+* So that, pre-written test cases all pass. Do not modify the test cases.
+* @param map the frequency map, keys can be any Enum (built-in or custom), values are Integer.
+* @param key any Enum type should work. Hint: [How do I decrypt "Enum<E extends Enum<E>>"?](http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeParameters.html#FAQ106)
