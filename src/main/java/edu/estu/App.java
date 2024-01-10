@@ -46,7 +46,21 @@ public class App {
      * @param key any Enum type should work. Hint: How do I decrypt "Enum<E extends Enum<E>>"?
      * http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeParameters.html#FAQ106
      */
+    public static <E extends Enum<E>> void incrementCountMapGenerics(Map<E, Integer> map, E key) {
+        map.merge(key, 1, Integer::sum);
+    }
 
+    public static <E extends Enum<E>> void incrementCountMapWildcard(Map<Enum<?>, Integer> map, E key) {
+        map.merge(key, 1, Integer::sum);
+    }
+
+    public static <E extends Enum<E>> void incrementCountMapEnumDescG(Map<Enum.EnumDesc<E>, Integer> map, Enum.EnumDesc<E> key) {
+        map.merge(key, 1, Integer::sum);
+    }
+
+    public static void incrementCountMapEnumDescW(Map<Enum.EnumDesc<?>, Integer> map, Enum.EnumDesc<?> key) {
+        map.merge(key, 1, Integer::sum);
+    }
 
     /* **********************************************
      ******* ALL TESTS MUST PASS IN THE END *********
@@ -58,16 +72,22 @@ public class App {
      * Hint: Map.merge() - One method to rule them all
      * https://nurkiewicz.com/2019/03/mapmerge-one-method-to-rule-them-all.html
      */
-    static <> void {
+    public static <E extends Enum<E>> void incrementByOneWithTypeParameter(Map<E,Integer> map,E key) {
+        map.merge(key,1,Integer::sum);
     }
 
-    static void {
+    public static <E extends Enum<E>> void incrementByOneWithWildcard(Map<Enum<?>,Integer> map,E key){
+        map.merge(key,1,Integer::sum);
     }
 
-    static <> void {
+    public static <E extends Enum<E>> void incrementByOneWithTypeWildcard(Map<Enum.EnumDesc<E>,Integer> map,Enum.EnumDesc<E> key){
+        map.merge(key,1,Integer::sum);
     }
 
-    static void {
-    }
+    public static void incrementByOneWithWildcardTypeParameter(Map<Enum.EnumDesc<?>,Integer> map,Enum.EnumDesc<?> key){
+        map.merge(key,1,Integer::sum);
+    } 
 }
+
+
 
